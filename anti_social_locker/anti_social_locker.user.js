@@ -11,6 +11,7 @@
 // @match        https://*/*
 // @noframes
 // @supportURL   https://github.com/lelinhtinh/Userscript/issues
+// @require     https://code.jquery.com/jquery-3.2.1.min.js
 // @run-at       document-start
 // @grant        none
 // ==/UserScript==
