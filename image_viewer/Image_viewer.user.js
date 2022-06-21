@@ -13,7 +13,7 @@
 // @run-at          document-idle
 // @grant           GM_addStyle
 // @grant           GM.xmlHttpRequest
-// @require         https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.8.0/viewer.min.js
+// @require         https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.10.5/viewer.min.js
 // @inject-into     content
 // ==/UserScript==
 
