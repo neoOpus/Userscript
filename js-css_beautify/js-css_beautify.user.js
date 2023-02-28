@@ -20,9 +20,9 @@
 // @require         https://unpkg.com/prettier@2.8.4/parser-yaml.js
 // @require         https://unpkg.com/prettier@2.8.4/parser-angular.js
 // @require         https://unpkg.com/@prettier/plugin-php@0.19.3/standalone.js
-// @require         https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js
-// @resource        dark https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-dark.min.css
-// @resource        light https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/atom-one-light.min.css
+// @require         https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js
+// @resource        dark https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css
+// @resource        light https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-light.min.css
 // @require         https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js
 // @noframes
 // @supportURL      https://github.com/lelinhtinh/Userscript/issues
