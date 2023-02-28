@@ -2,7 +2,7 @@
 // @name            manga comic downloader
 // @namespace       https://baivong.github.io
 // @description     Tải truyện tranh từ các trang chia sẻ ở Việt Nam. Nhấn Alt+Y để tải toàn bộ.
-// @version         3.3.12
+// @version         3.3.14
 // @icon            https://i.imgur.com/ICearPQ.png
 // @author          Zzbaivong
 // @license         MIT; https://baivong.mit-license.org/license.txt
@@ -49,8 +49,11 @@
 // @match           http://*.hamtruyentranh.net/*
 // @match           https://ttmanga.com/*
 // @match           http://truyen.vnsharing.site/*
+// @match           http://*.blogtruyen.com/*
 // @match           https://*.blogtruyen.com/*
+// @match           http://*.blogtruyen.vn/*
 // @match           https://*.blogtruyen.vn/*
+// @match           http://*.blogtruyen.top/*
 // @match           https://*.blogtruyen.top/*
 // @match           https://truyensieuhay.com/*
 // @match           http://truyenqq.com/*
@@ -65,6 +68,7 @@
 // @match           https://khotruyentranhz.com/*
 // @match           https://truyenvn.com/*
 // @match           https://truyenvn.vip/*
+// @match           https://truyenvnpro.com/*
 // @match           https://*.saytruyen.net/*
 // @match           https://*.saytruyen.com/*
 // @match           https://*.sayhentai.net/*
@@ -1156,40 +1160,6 @@ jQuery(function ($) {
     });
   }
 
-  function getTruyenVn() {
-    getSource(function ($data) {
-      var chapId = $data.find('[name="p"]:first').val();
-      $.ajax({
-        type: 'POST',
-        url: '/wp-admin/admin-ajax.php',
-        data: {
-          action: 'z_do_ajax',
-          _action: 'load_imgs_for_chapter',
-          p: chapId,
-        },
-        dataType: 'json',
-      })
-        .done(function (res) {
-          if (res.mes != '-1') {
-            if (res.mes.length > 1) {
-              checkImages(
-                res.mes.map(function (img) {
-                  return img.url;
-                }),
-              );
-            } else {
-              notyImages();
-            }
-          } else {
-            notyImages();
-          }
-        })
-        .fail(function () {
-          notyError();
-        });
-    });
-  }
-
   var configsDefault = {
       reverse: true,
       link: '',
@@ -1493,12 +1463,13 @@ jQuery(function ($) {
       break;
     case 'truyenvn.com':
     case 'truyenvn.vip':
+    case 'truyenvnpro.com':
       configs = {
         link: '#chapterList a',
         name: function (_this) {
           return $('h1.name').text().trim() + ' ' + $(_this).find('span:first').text().trim();
         },
-        init: getTruyenVn,
+        contents: '.content-text',
       };
       break;
     case 'saytruyen.net':
