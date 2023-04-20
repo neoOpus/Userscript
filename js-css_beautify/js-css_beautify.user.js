@@ -92,7 +92,7 @@ GM.getResourceUrl(STYLE)
     GM_addStyle(
       `${style}*{margin:0;padding:0}html{line-height:1em;background:${
         STYLE === 'dark' ? '#282c34' : '#fafafa'
-      }}pre{white-space:pre-wrap;word-wrap:break-word;word-break:break-all}`
+      }}pre{white-space:pre-wrap;word-wrap:break-word;word-break:break-all}`,
     );
   })
   .catch((err) => console.error(err));
