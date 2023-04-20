@@ -11,15 +11,15 @@
 // @license         MIT; https://baivong.mit-license.org/license.txt
 // @match           *://*/*.js
 // @match           *://*/*.css
-// @require         https://unpkg.com/prettier@2.8.4/standalone.js
-// @require         https://unpkg.com/prettier@2.8.4/parser-postcss.js
-// @require         https://unpkg.com/prettier@2.8.4/parser-html.js
-// @require         https://unpkg.com/prettier@2.8.4/parser-babel.js
-// @require         https://unpkg.com/prettier@2.8.4/parser-graphql.js
-// @require         https://unpkg.com/prettier@2.8.4/parser-markdown.js
-// @require         https://unpkg.com/prettier@2.8.4/parser-typescript.js
-// @require         https://unpkg.com/prettier@2.8.4/parser-yaml.js
-// @require         https://unpkg.com/prettier@2.8.4/parser-angular.js
+// @require         https://unpkg.com/prettier@2.8.7/standalone.js
+// @require         https://unpkg.com/prettier@2.8.7/parser-postcss.js
+// @require         https://unpkg.com/prettier@2.8.7/parser-html.js
+// @require         https://unpkg.com/prettier@2.8.7/parser-babel.js
+// @require         https://unpkg.com/prettier@2.8.7/parser-graphql.js
+// @require         https://unpkg.com/prettier@2.8.7/parser-markdown.js
+// @require         https://unpkg.com/prettier@2.8.7/parser-typescript.js
+// @require         https://unpkg.com/prettier@2.8.7/parser-yaml.js
+// @require         https://unpkg.com/prettier@2.8.7/parser-angular.js
 // @require         https://unpkg.com/@prettier/plugin-php@0.19.3/standalone.js
 // @require         https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js
 // @resource        dark https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css
