@@ -4,7 +4,7 @@
 // @namespace       http://devs.forumvi.com
 // @description     Beautify and syntax highlighting for source code JavaScript, JSON, CSS. From v4.1+, a few more formats are also supported.
 // @description:vi  Định dạng và làm đẹp mã nguồn JavaScript, JSON, CSS. Từ bản v4.1+, một vài định dạng khác cũng được hỗ trợ .
-// @version         4.1.4
+// @version         4.1.5
 // @icon            http://i.imgur.com/kz8nqz1.png
 // @author          Zzbaivong
 // @oujs:author     baivong
