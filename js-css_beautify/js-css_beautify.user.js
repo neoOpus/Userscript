@@ -85,16 +85,18 @@
     }
   }
 
-  GM.getResourceUrl(STYLE)
-    .then((url) => fetch(url))
-    .then((resp) => resp.text())
-    .then((style) =>
-      GM_addStyle(
-        `${style}*{margin:0;padding:0}html{line-height:1em;background:${
-          STYLE === 'dark' ? '#282c34' : '#fafafa'
-        }}pre{white-space:pre-wrap;word-wrap:break-word;word-break:break-all}`
-      )
+GM.getResourceUrl(STYLE)
+  .then((url) => fetch(url.replace('http:', 'https:')))
+  .then((resp) => resp.text())
+  .then((style) => {
+    GM_addStyle(
+      `${style}*{margin:0;padding:0}html{line-height:1em;background:${
+        STYLE === 'dark' ? '#282c34' : '#fafafa'
+      }}pre{white-space:pre-wrap;word-wrap:break-word;word-break:break-all}`
     );
+  })
+  .catch((err) => console.error(err));
+
 
   let source = output.textContent;
 
