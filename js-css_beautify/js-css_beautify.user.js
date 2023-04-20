@@ -20,7 +20,7 @@
 // @require         https://unpkg.com/prettier@2.8.7/parser-typescript.js
 // @require         https://unpkg.com/prettier@2.8.7/parser-yaml.js
 // @require         https://unpkg.com/prettier@2.8.7/parser-angular.js
-// @require         https://unpkg.com/@prettier/plugin-php@0.19.3/standalone.js
+// @require         https://unpkg.com/@prettier/plugin-php@0.19.4/standalone.js
 // @require         https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js
 // @resource        dark https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css
 // @resource        light https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-light.min.css
