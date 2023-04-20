@@ -37,83 +37,83 @@
 /* global prettier, prettierPlugins, hljs */
 /* eslint-env worker, es6 */
 (() => {
-  'use strict';
+    'use strict';
 
-  /**
+    /**
    * Color themes
    * @type {'dark'|'light'}
    */
-  const STYLE = 'dark';
+    const STYLE = 'dark';
 
-  /* === DO NOT CHANGE === */
+    /* === DO NOT CHANGE === */
 
-  const output = document.querySelector('body > pre');
-  if (output === null) return;
-  if (document.querySelector('body').firstElementChild.tagName !== 'PRE') return;
+    const output = document.querySelector('body > pre');
+    if (output === null) return;
+    if (document.querySelector('body').firstElementChild.tagName !== 'PRE') return;
 
-  const contentType = document.contentType,
-    pathname = location.pathname;
+    const contentType = document.contentType,
+          pathname = location.pathname;
 
-  if (/^application\/(xhtml+xml|xml|rss+xml)|text\/(html|xml)$/.test(contentType)) return;
+    if (/^application\/(xhtml+xml|xml|rss+xml)|text\/(html|xml)$/.test(contentType)) return;
 
-  let parser;
-  if (contentType === 'text/css' || /.+\.css$/.test(pathname)) {
-    parser = 'css';
-  } else if (contentType === 'application/json' || /.+\.(json|map)$/.test(pathname)) {
-    parser = 'json';
-  } else if (/^application\/(x-javascript|javascript)$/.test(contentType) || /.+\.jsx?$/.test(pathname)) {
-    parser = 'babel';
-  } else if (contentType === 'text/plain') {
-    if (/.+\.component\.html$/.test(pathname)) {
-      parser = 'angular';
-    } else if (/.+\.(gql|graphql)$/.test(pathname)) {
-      parser = 'graphql';
-    } else if (/.+\.ya?ml$/.test(pathname)) {
-      parser = 'yaml';
-    } else if (/.+\.(x?html?|xml)$/.test(pathname)) {
-      parser = 'html';
-    } else if (/.+\.tsx?$/.test(pathname)) {
-      parser = 'typescript';
-    } else if (/.+\.php$/.test(pathname)) {
-      parser = 'php';
-    } else if (/.+\.vue$/.test(pathname)) {
-      parser = 'vue';
-    } else if (/.+\.(less|scss)$/.test(pathname)) {
-      parser = 'css';
-    } else if (/.+\.(md|markdown)$/.test(pathname)) {
-      parser = 'markdown';
+    let parser;
+    if (contentType === 'text/css' || /.+\.css$/.test(pathname)) {
+        parser = 'css';
+    } else if (contentType === 'application/json' || /.+\.(json|map)$/.test(pathname)) {
+        parser = 'json';
+    } else if (/^application\/(x-javascript|javascript)$/.test(contentType) || /.+\.jsx?$/.test(pathname)) {
+        parser = 'babel';
+    } else if (contentType === 'text/plain') {
+        if (/.+\.component\.html$/.test(pathname)) {
+            parser = 'angular';
+        } else if (/.+\.(gql|graphql)$/.test(pathname)) {
+            parser = 'graphql';
+        } else if (/.+\.ya?ml$/.test(pathname)) {
+            parser = 'yaml';
+        } else if (/.+\.(x?html?|xml)$/.test(pathname)) {
+            parser = 'html';
+        } else if (/.+\.tsx?$/.test(pathname)) {
+            parser = 'typescript';
+        } else if (/.+\.php$/.test(pathname)) {
+            parser = 'php';
+        } else if (/.+\.vue$/.test(pathname)) {
+            parser = 'vue';
+        } else if (/.+\.(less|scss)$/.test(pathname)) {
+            parser = 'css';
+        } else if (/.+\.(md|markdown)$/.test(pathname)) {
+            parser = 'markdown';
+        }
     }
-  }
 
-GM.getResourceUrl(STYLE)
-  .then((url) => fetch(url.replace('http:', 'https:')))
-  .then((resp) => resp.text())
-  .then((style) => {
-    GM_addStyle(
-      `${style}*{margin:0;padding:0}html{line-height:1em;background:${
+    GM.getResourceUrl(STYLE)
+        .then((url) => fetch(url.replace('http:', 'https:')))
+        .then((resp) => resp.text())
+        .then((style) => {
+        GM_addStyle(
+            `${style}*{margin:0;padding:0}html{line-height:1em;background:${
         STYLE === 'dark' ? '#282c34' : '#fafafa'
-      }}pre{white-space:pre-wrap;word-wrap:break-word;word-break:break-all}`,
+        }}pre{white-space:pre-wrap;word-wrap:break-word;word-break:break-all}`,
     );
-  })
-  .catch((err) => console.error(err));
+})
+    .catch((err) => console.error(err));
 
 
-  let source = output.textContent;
+    let source = output.textContent;
 
-  try {
-    if (parser) source = prettier.format(source, { parser: parser, plugins: prettierPlugins });
-  } catch (err) {
-    console.error(err);
-  }
+    try {
+        if (parser) source = prettier.format(source, { parser: parser, plugins: prettierPlugins });
+    } catch (err) {
+        console.error(err);
+    }
 
-  source = hljs.highlightAuto(source).value;
+    source = hljs.highlightAuto(source).value;
 
-  const fragment = document.createDocumentFragment(),
-    pre = document.createElement('pre');
+    const fragment = document.createDocumentFragment(),
+          pre = document.createElement('pre');
 
-  pre.innerHTML = source;
-  pre.className = 'hljs';
+    pre.innerHTML = source;
+    pre.className = 'hljs';
 
-  fragment.appendChild(pre);
-  document.body.replaceChild(fragment, output);
+    fragment.appendChild(pre);
+    document.body.replaceChild(fragment, output);
 })();
